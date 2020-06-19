@@ -97,6 +97,10 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { startActivity(Intent(this@MainActivity, SettingsActivity::class.java)) }
 
+        fabNext.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+        }
+
         prefs.registerListener(onSharedPrefChangeListener)
 
     }

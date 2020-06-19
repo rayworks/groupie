@@ -26,8 +26,12 @@ class CarouselItem(private val carouselDecoration: RecyclerView.ItemDecoration,
             // We don't know if the layout we're passed has been bound before so
             // we need to ensure we don't register the item decoration multiple times,
             // by trying to remove it first. (Nothing happens if it's not registered.)
-            removeItemDecoration(carouselDecoration)
-            addItemDecoration(carouselDecoration)
+//            removeItemDecoration(carouselDecoration)
+//            addItemDecoration(carouselDecoration)
+
+            if(itemDecorationCount == 0) {
+                addItemDecoration(carouselDecoration)
+            }
         }
     }
 }
