@@ -41,6 +41,8 @@ dependencies {
     implementation project(':example-shared')
     implementation project(':library')
     implementation project(':library-kotlin-android-extensions')
+
+    implementation 'com.rayworks.shadowlib:shadowlib:0.1.1'
 }
 
 repositories {

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="level_cert_card_width_big">100dp</dimen>
+    <dimen name="level_cert_card_height_big">140dp</dimen>
+
+    <dimen name="level_cert_card_margin_bottom">30dp</dimen>
+    <dimen name="level_cert_card_margin_horizontal">16dp</dimen>
+</resources>

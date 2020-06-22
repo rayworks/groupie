@@ -38,8 +38,13 @@ class SecondActivity : AppCompatActivity() {
     private fun populateAdapter() {
         groupAdapter.clear()
 
+        val texts = arrayListOf("Beginner High", "Elementary", "Intermediate", "Upper-Intermediate", "Advance", "Upper-Advance")
         // Horizontal carousel
-        groupAdapter += Section(TextItem("Beginner")).apply {
+        for (i in 0 .. 5) {
+            groupAdapter += TextItem(texts[i])
+            groupAdapter += makeCarouselItem()
+        }
+        /*groupAdapter += Section(TextItem("Beginner")).apply {
             add(makeCarouselItem())
         }
 
@@ -61,7 +66,7 @@ class SecondActivity : AppCompatActivity() {
 
         groupAdapter += Section(TextItem("Upper-Advance")).apply {
             add(makeCarouselItem())
-        }
+        }*/
     }
 
     private fun makeCarouselItem(): CarouselItem {
@@ -70,21 +75,21 @@ class SecondActivity : AppCompatActivity() {
 
         val array = arrayOf("Elementary", "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6","Level 7", "Level 8", "Level 9")
         for (i in 0..9) {
-            carouselAdapter += LevelCardItem(array[i])
+            carouselAdapter += LevelCardItem(array[i], i == 0)
         }
         return CarouselItem(carouselDecoration, carouselAdapter)
     }
 
     private fun setupLayout() {
-        groupLayoutManager = GridLayoutManager(this, groupAdapter.spanCount).apply {
+        groupLayoutManager = GridLayoutManager(this, groupAdapter.spanCount)/*.apply {
             spanSizeLookup = groupAdapter.spanSizeLookup
-        }
+        }*/
 
         recyclerView.apply {
             layoutManager = groupLayoutManager
 //            addItemDecoration(HeaderItemDecoration(gray, betweenPadding))
 //            addItemDecoration(InsetItemDecoration(gray, betweenPadding))
-            addItemDecoration(DebugItemDecoration(context))
+//            addItemDecoration(DebugItemDecoration(context))
 
             /*val dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             dividerItemDecoration.setDrawable(getDrawable(R.drawable.divider_rect))
